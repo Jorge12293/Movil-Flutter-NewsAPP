@@ -1,8 +1,11 @@
 
 import 'package:appcrudflutter/src/crud_one/services/note_service.dart';
-import 'package:appcrudflutter/src/crud_two/screens/home_screen.dart';
+import 'package:appcrudflutter/src/multiple_provider/multiple_provider.dart';
+import 'package:appcrudflutter/src/news_provider/pages/tabs_page.dart';
+import 'package:appcrudflutter/src/news_provider/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
+import 'package:provider/provider.dart';
 
 GetIt locator = GetIt.instance;
 
@@ -13,18 +16,25 @@ initLocator() {
 
 void main() {
   initLocator();
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: MultipleProviders.providers,
+      child:const MyApp(),
+    )
+  );
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
+      theme: miTema,
+      
+      /*
       theme: ThemeData(
         primarySwatch: Colors.blue,
         primaryColor: Colors.orange[100],
@@ -32,7 +42,8 @@ class MyApp extends StatelessWidget {
           elevation: 0.8
         )
       ),
-      home:HomeScreen(),
+      */
+      home:TabsPage(),
     );
   }
 }
