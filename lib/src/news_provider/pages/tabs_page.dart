@@ -137,6 +137,7 @@ class _PaginasState extends State<_Paginas> {
     final navegacionModel = Provider.of<NavegacionModel>(context);
 
     return PageView(
+       //Tabs
       //physics:const BouncingScrollPhysics(),
       controller: navegacionModel.pageController,
       physics:const NeverScrollableScrollPhysics(),
